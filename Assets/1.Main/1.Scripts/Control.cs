@@ -5,14 +5,11 @@ public class Control : MonoBehaviour
 
    
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform respawnPoint;
     public bool isFlat = true;
     public Rigidbody2D rigid2d;
     public float speed = 15f;
     public float maxSpeed = 5f;
-    public ParticleSystem DestructionEffect;
-    AudioSource death;
+    
     // here we look for the specific component rigidbody2d
 
     private void Start()
@@ -47,37 +44,11 @@ public class Control : MonoBehaviour
         }
     }
 
-    // if the player collides with a tag deadpoint he dies and transforms to the position of the respawnpoint.
-    // Also we call the function die here.
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "DeadPoint")
-        {
-            Die();
-            player.transform.position = respawnPoint.transform.position;
-        }
-    }
-
-    void Die()
-    {
-
-      
-        // In the function die we instantiate a particle effect on respawn.
-
-            ParticleSystem explosionEffect = Instantiate(DestructionEffect)
-                                             as ParticleSystem;
-            explosionEffect.transform.position = respawnPoint.transform.position;
-        death = GetComponent<AudioSource>();
-        death.Play(0);
-
-        explosionEffect.Play();
-
-        
 
 
 
           
         
-    }
+ }
 
-}
+

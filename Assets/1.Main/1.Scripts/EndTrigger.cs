@@ -11,10 +11,13 @@ public class EndTrigger : MonoBehaviour {
     // here we make it so that if the endtrigger collides with the tag player it loads a new level.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
             SceneManager.LoadScene(LoadLevel);
         }
     }
-
+    void Loadlevel()
+    {
+        SceneManager.LoadScene(LoadLevel);
+    }
 }

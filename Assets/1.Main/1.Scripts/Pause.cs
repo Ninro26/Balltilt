@@ -5,8 +5,8 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
 
-    public bool paused = false;
-    public GameObject Pausemenu;
+    private bool paused = false;
+    [SerializeField] GameObject pauseMenu;
 
     public void OnTouchDown()
     {
@@ -30,7 +30,7 @@ public class Pause : MonoBehaviour
         Debug.Log("Pausing");
         Time.timeScale = 0f;
         paused = true;
-        Pausemenu.SetActive(true);
+        pauseMenu.SetActive(true);
     }
 
     void Resume()
@@ -38,7 +38,7 @@ public class Pause : MonoBehaviour
         Debug.Log("Resuming");
         Time.timeScale = 1f;
         paused = false;
-        Pausemenu.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
 
@@ -47,16 +47,5 @@ public class Pause : MonoBehaviour
 
 
 
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }
